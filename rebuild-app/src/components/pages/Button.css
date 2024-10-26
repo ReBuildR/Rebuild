@@ -1,35 +1,37 @@
 .button {
-    border: 2px solid #32612D; /* Remove borders */
-    padding: 6px 28px; /* Some padding */
+    padding: 20px 80px; /* Some padding */
     text-align: center; /* Center the text */
     text-decoration: none; /* Remove underline */
     display: flex; /* Make the button inline */
-    font-size: 16px; /* Increase font size */
+    font-size: 25px; /* Increase font size */
     margin: 4px 2px; /* Add some margins */
+    margin-bottom: 40px;
     cursor: pointer; /* Pointer/hand icon */
     border-radius: 100px; /* Curved border */
     transition: background-color 0.3s ease; /* Transition for hover effect */
   }
 
-.button-resume {
-  border: 2px solid #D4AF37;
-  background-color: #D4AF37;
+.button-rebuild {
+  background-color: #F97300;
   color: white;
 }
 
-.button-resume:hover {
-  border: 2px solid #32612D;
+.button-rebuild:hover {
+  background-color: #F97300;
+  color: white;
+}
+
+.button-reuse:hover {
   background-color: white;
   color: black;
 }
 
-.button-projects {
-  background-color: white;
+.button-recycle {
+  background-color: #F97300;
   color: black;
 }
 
-.button-projects:hover {
-  border: 2px solid #D4AF37;
+.button-recycle:hover {
   background-color: #D4AF37;
   color: white;
 }

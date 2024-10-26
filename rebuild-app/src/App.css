@@ -2,3 +2,9 @@
   width: 100%;
 }
 
+@font-face {
+  font-family: "TombstoneFREE";
+  src: local("TombstoneFREE"),
+    url("./fonts/Tombstone-Free.otf") format("opentype");
+  font-weight: normal;
+}
