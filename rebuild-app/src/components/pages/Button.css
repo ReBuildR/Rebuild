@@ -1,9 +1,11 @@
 .button {
     padding: 20px 80px; /* Some padding */
     text-align: center; /* Center the text */
+    justify-content: center;
     text-decoration: none; /* Remove underline */
     display: flex; /* Make the button inline */
-    font-size: 25px; /* Increase font size */
+    font-size: 50px; /* Increase font size */
+    font-family: 'GravestoneDemo-4BPgx';
     margin: 4px 2px; /* Add some margins */
     margin-bottom: 40px;
     cursor: pointer; /* Pointer/hand icon */
@@ -12,26 +14,25 @@
   }
 
 .button-rebuild {
-  background-color: #F97300;
-  color: white;
-}
-
-.button-rebuild:hover {
-  background-color: #F97300;
-  color: white;
-}
-
-.button-reuse:hover {
-  background-color: white;
   color: black;
 }
 
+.button-rebuild:hover {
+  color: white;
+}
+
+.button-reuse {
+  color: black;
+}
+
+.button-reuse:hover {
+  color: white;
+}
+
 .button-recycle {
-  background-color: #F97300;
   color: black;
 }
 
 .button-recycle:hover {
-  background-color: #D4AF37;
   color: white;
 }

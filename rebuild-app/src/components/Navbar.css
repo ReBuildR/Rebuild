@@ -1,6 +1,6 @@
 .active{
     color: #005B41;
-}
+} 
 
 nav .image {
     height: 100px;
@@ -16,6 +16,7 @@ nav {
     align-items: center;
     background: linear-gradient(to right, #F97300 45%, #32012F 0%);
     position: sticky;
+    font-family: 'GravestoneDemo-4BPgx';
     top: 0;
     height: 100px;
     z-index: 1000;

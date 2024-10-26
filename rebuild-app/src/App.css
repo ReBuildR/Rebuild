@@ -3,8 +3,12 @@
 }
 
 @font-face {
-  font-family: "TombstoneFREE";
-  src: local("TombstoneFREE"),
-    url("./fonts/Tombstone-Free.otf") format("opentype");
+  font-family: "GravestoneDemo-4BPgx";
+  src: url("./fonts/GravestoneDemo-4BPgx.otf") format("opentype");
   font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Tombstone-FREE", Arial, sans-serif;
 }
