@@ -1,5 +1,5 @@
 .home-container {
-    background: linear-gradient(to right, #F97300 45%, #E2DFD0 0%);
+    background: linear-gradient(to right, #F97300 45%, #32012F 0%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,10 +8,14 @@
 }
 
 .home-box {
-    width: 800px;
+    width: 700px;
     height: 600px;
     border-radius: 20px;
     display: flex;
     box-shadow: -1px 6px 15px rgba(0, 0, 0, 0.2);
-    background-color: white;
+    background-color: #524C42;
+    border-top-left-radius: 20px; /* Rounded top-left corner */
+    border-bottom-left-radius: 20px; 
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align items horizontally */
   }

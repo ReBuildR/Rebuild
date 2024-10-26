@@ -6,7 +6,7 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to right, #F97300 45%, #E2DFD0 0%);
+    background: linear-gradient(to right, #F97300 45%, #32012F 0%);
     position: sticky;
     top: 0;
     height: 100px;
@@ -14,11 +14,11 @@ nav {
 }
 
 nav .title {
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: bold;
     margin: 4rem;
     text-decoration: none;
-    color: white;
+    color: #005B41;
 }
 
 nav ul {
@@ -38,8 +38,10 @@ nav ul li {
 nav ul li a {
     display: block;
     text-decoration: none;
-    color: black;
-    padding: 1rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 3rem;
     margin: 0 0.5rem;
     border-radius: 0.5rem;
 }
@@ -53,7 +55,7 @@ nav ul li a.active:hover {
 }
 
 nav .title:hover {
-    color: white;
+    color: #005B41;
 }
 
 nav .menu {
