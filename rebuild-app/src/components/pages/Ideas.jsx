@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Ideas() {
+export const Ideas = () => {
   return (
     <div>Ideas</div>
   )

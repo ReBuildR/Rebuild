@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Submit() {
+export const Submit = () => {
   return (
     <div>Submit</div>
   )

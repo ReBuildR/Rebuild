@@ -10,7 +10,7 @@ export const Navbar = () => {
     }
 
     return <nav>
-        <Link to="/" className="title">Oz Birdett</Link>
+        <Link to="/" className="title">ReAnimate</Link>
         <div className="menu" onClick={() => {
             setMenuOpen(!menuOpen);
         }}>
@@ -26,7 +26,7 @@ export const Navbar = () => {
                 <NavLink to="/ideas" onClick={handleLinkClick}>Ideas</NavLink>
             </li>
             <li>
-                <NavLink to="/submit" onClick={handleLinkClick}>Submit Idea</NavLink>
+                <NavLink to="/submit" onClick={handleLinkClick}>Upload Idea</NavLink>
             </li>
         </ul>
     </nav>
