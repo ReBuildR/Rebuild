@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import "./Navbar.css"
+import trash from '/src/assets/trash.png'
 
 export const Navbar = () => {
     const [menuOpen, setMenuOpen] = useState(false)
@@ -10,6 +11,7 @@ export const Navbar = () => {
     }
 
     return <nav>
+        <img src={trash} alt="logo" className="image" />
         <Link to="/" className="title">ReAnimate</Link>
         <div className="menu" onClick={() => {
             setMenuOpen(!menuOpen);

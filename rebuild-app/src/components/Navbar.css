@@ -2,6 +2,14 @@
     color: #005B41;
 }
 
+nav .image {
+    height: 100px;
+    width: 100px;
+    margin-right: -850px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
