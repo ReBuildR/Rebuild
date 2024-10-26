@@ -1,47 +1,42 @@
 // src/Chatbot.js
-
 import React, { useState } from 'react';
 import axios from 'axios';
 
 const Chatbot = () => {
-  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
-
-  const API_URL = 'https://api.openai.com/v1/chat/completions';
+  const [messages, setMessages] = useState([]);
+  
+  const handleInputChange = (e) => {
+    setInput(e.target.value);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const userMessage = { role: 'user', content: input };
-    const newMessages = [...messages, userMessage];
+    if (!input) return;
 
-    setMessages(newMessages);
-    setInput('');
+    // Add user message to chat
+    setMessages((prev) => [...prev, { sender: 'user', text: input }]);
 
     try {
-      const response = await axios.post(API_URL, {
-        model: 'gpt-4o-mini',
-        messages: newMessages,
-      }, {
-        headers: {
-          'Authorization': `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
-          'Content-Type': 'application/json',
-        },
+      const response = await axios.post('http://localhost:5000/api/chat', {
+        message: input,
       });
 
-      const botMessage = response.data.choices[0].message;
-      setMessages((prevMessages) => [...prevMessages, botMessage]);
+      const gptMessage = response.data.content;
+      setMessages((prev) => [...prev, { sender: 'gpt', text: gptMessage }]);
     } catch (error) {
-      console.error('Error fetching response:', error);
+      console.error('Error fetching response from backend:', error);
     }
+
+    setInput(''); // Clear the input
   };
 
   return (
-    <div style={{ width: '400px', margin: '0 auto', border: '1px solid #ccc', padding: '20px', borderRadius: '10px' }}>
-      <h2>Chatbot</h2>
-      <div style={{ height: '300px', overflowY: 'scroll', border: '1px solid #ddd', marginBottom: '10px', padding: '10px' }}>
+    <div>
+      <div style={{ maxHeight: '400px', overflowY: 'auto', border: '1px solid #ccc', marginBottom: '20px' }}>
         {messages.map((msg, index) => (
-          <div key={index} style={{ margin: '5px 0' }}>
-            <strong>{msg.role === 'user' ? 'You:' : 'Bot:'}</strong> {msg.content}
+          <div key={index} style={{ textAlign: msg.sender === 'user' ? 'right' : 'left' }}>
+            <strong>{msg.sender === 'user' ? 'You' : 'ChatGPT'}:</strong> {msg.text}
           </div>
         ))}
       </div>
@@ -49,11 +44,11 @@ const Chatbot = () => {
         <input
           type="text"
           value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="Type your message..."
-          style={{ width: '100%', padding: '10px' }}
+          onChange={handleInputChange}
+          placeholder="Type your message here..."
+          style={{ width: '80%', padding: '10px' }}
         />
-        <button type="submit" style={{ padding: '10px', marginTop: '10px', width: '100%' }}>Send</button>
+        <button type="submit">Send</button>
       </form>
     </div>
   );
