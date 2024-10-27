@@ -4,7 +4,7 @@
     align-items: center;
     overflow-y: hidden;
     height: auto;
-    background: linear-gradient(to right, #32612D 45%, #FFFF 0%);
+    background: #9c3e16;
 }
 
 .ideas-box {
@@ -14,7 +14,7 @@
     max-height: 600px;
     box-shadow: -1px 6px 15px rgba(0, 0, 0, 0.2); /* Box shadow */
     display: flex; /* Ensure internal content doesn't cause reflow */
-    margin-bottom: 10px; /* Decreased margin to create less space between boxes */
+    margin-bottom: 30px; /* Decreased margin to create less space between boxes */
 }
 
 .ideas-box-left {
@@ -42,9 +42,10 @@
 
 .ideas-header {
     color: white;
-    font-size: 1.5rem;
+    font-size: 40px;
     font-weight: bold;
     text-align: center;
+    font-family: 'GravestoneDemo-4BPgx';
     padding: 10px; /* Reduced padding */
 }
 
@@ -70,7 +71,7 @@ ul.c {
 }
 
 ul.c li::marker {
-    color: #D4AF37; /* Gold color for the bullet points */
+    color: #005B41; /* Gold color for the bullet points */
 }
 
 .image-gallery-wrapper {
@@ -79,7 +80,7 @@ ul.c li::marker {
     margin: 0; /* Remove margins for better alignment */
 }
 .download-button {
-    background-color: #D4AF37; /* Gold color */
+    background-color: #005B41; /* Gold color */
     color: white;
     border: none;
     border-radius: 5px;
@@ -94,5 +95,5 @@ ul.c li::marker {
 }
 
 .download-button:hover {
-    background-color: #b5942b; /* Darker gold on hover */
+    background-color: #005B41; /* Darker gold on hover */
 }
