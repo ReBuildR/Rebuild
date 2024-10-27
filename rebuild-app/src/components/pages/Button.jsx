@@ -1,11 +1,21 @@
+// Button.js
 import React from 'react';
-import { Link } from 'react-router-dom';
-import './Button.css';
+import './Button.css'
 
-export const Button = ({ text, className, link }) => {
+export const Button = ({ text, onClick, link }) => {
+  const handleClick = () => {
+    if (link) {
+      // If a link is provided, navigate
+      window.location.href = link; // For links
+    } else if (onClick) {
+      // If an onClick function is provided, call it
+      onClick();
+    }
+  };
+
   return (
-    <Link to={link} className={`button ${className}`}>
+    <button onClick={handleClick} className="button">
       {text}
-    </Link>
+    </button>
   );
 };

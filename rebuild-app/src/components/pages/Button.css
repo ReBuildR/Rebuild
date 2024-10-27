@@ -1,38 +1,19 @@
 .button {
-    padding: 20px 80px; /* Some padding */
-    text-align: center; /* Center the text */
-    justify-content: center;
-    text-decoration: none; /* Remove underline */
     display: flex; /* Make the button inline */
     font-size: 50px; /* Increase font size */
     font-family: 'GravestoneDemo-4BPgx';
-    margin: 4px 2px; /* Add some margins */
-    margin-bottom: 40px;
+    margin-bottom: 30px;
     cursor: pointer; /* Pointer/hand icon */
-    border-radius: 100px; /* Curved border */
     transition: background-color 0.3s ease; /* Transition for hover effect */
+    background: none;
+    border: none;
+    color: black;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    height: 100px; /* Set a fixed height */
+    width: 300px; /* Set a fixed width for testing */
   }
 
-.button-rebuild {
-  color: black;
-}
-
-.button-rebuild:hover {
-  color: white;
-}
-
-.button-reuse {
-  color: black;
-}
-
-.button-reuse:hover {
-  color: white;
-}
-
-.button-recycle {
-  color: black;
-}
-
-.button-recycle:hover {
-  color: white;
+.button:hover {
+  color:white;
 }
