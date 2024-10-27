@@ -40,3 +40,9 @@
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center align items horizontally */
 }
+
+.chatbot-title {
+    font-family: 'GravestoneDemo-4BPgx';
+    color: white;
+    font-size: 40px;
+}

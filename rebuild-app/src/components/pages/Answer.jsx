@@ -6,7 +6,7 @@ import './Answer.css'
 
 export const Answer = () => {
   const [steps, setSteps] = useState([]);
-  const { state: { appendedItemValue } = {} } = useLocation();
+  const { state: { appendedItemValue, item } = {} } = useLocation();
 
   useEffect(() => {
     const fetchSteps = async () => {
@@ -16,6 +16,7 @@ export const Answer = () => {
         const response = await axios.post('http://localhost:5001/api/chat', {
           message: appendedItemValue,
         });
+        console.log(appendedItemValue);
 
         const content = response.data.content;
         const parsedSteps = content
@@ -33,16 +34,18 @@ export const Answer = () => {
 
   return (
     <div className="answer-container">
-      <h2>Steps to Create:</h2>
+      <div className = "answer-title">{`Guide to: ${item}`}</div>
+      <div className = "answer-box">
       {steps.length > 0 ? (
-        <ul>
+        <ul className='answer-list'>
           {steps.map((step, index) => (
             <li key={index}>{step}</li>
           ))}
         </ul>
       ) : (
-        <p>No steps available.</p>
+        <p className = "loading">Loading...</p>
       )}
+      </div>
     </div>
   );
 };

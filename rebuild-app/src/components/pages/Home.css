@@ -46,3 +46,15 @@
     z-index: 2000;
     position: absolute;
 }
+
+.error-message {
+    font-family: 'GravestoneDemo-4BPgx';
+    color: red;
+    font-size: 30px;
+}
+
+.loading {
+    font-family: 'GravestoneDemo-4BPgx';
+    color: black;
+    font-size: 30px;
+}

@@ -3,8 +3,36 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     background: #9c3e16;
     overflow: auto;
+}
+
+.answer-title {
+    font-family: 'GravestoneDemo-4BPgx';
+    color: white;
+    font-size: 40px;
+}
+
+.answer-box {
+    width: 1000px;
+    border: 2px solid black; /* Add a border matching the background */
+    justify-content: center;
+    display: flex;
+    box-shadow: -1px 6px 15px rgba(0, 0, 0, 0.2);
+    background-color: #524C42;
+    border-radius: 50px;
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center align items horizontally */
+    padding: 20px; /* Add padding for some spacing */
+    overflow: hidden; /* Prevent overflow */
+    margin-bottom:30px;
+}
+
+ul.answer-list {
+    font-family: 'GravestoneDemo-4BPgx';
+    color: black;
+    font-size: 25px;
+    list-style: none;
 }

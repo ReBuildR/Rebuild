@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
 import { motion } from 'framer-motion';
 import useSound from 'use-sound';
 import batsSound from '/src/assets/bats.wav';
-import clickSound from '/src/assets/click.wav';
 import zombieSound from '/src/assets/zombie.wav';
 import ghostSound from '/src/assets/ghost.wav';
 import doorSound from '/src/assets/door.wav';
@@ -25,6 +24,9 @@ export const Home = () => {
   const viewportHeight = window.innerHeight;
 
   const [play] = useSound(batsSound, { preload: true });
+  const [playZombie] = useSound(zombieSound, { preload: true });
+  const [playGhost] = useSound(ghostSound, { preload: true });
+  const [playDoor] = useSound(doorSound, { preload: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -45,30 +47,39 @@ export const Home = () => {
   };
 
   const handleRebuildClick = () => {
-    useSound(zombieSound, { preload: true });
+    playZombie();
     if (!inputValue) {
       setErrorMessage('Input cannot be blank.');
       return;
     }
 
+    const type = 'Rebuild';
     const appendedInputValue = `List names of technical projects you can create from using the parts of ${inputValue}, make sure it is a list without numbers. Just put the name nothing before or after it. Only give 5 responses. Make sure its an unnumbered list`;
-    navigate('/options', { state: { appendedInputValue, originalInputValue: inputValue } });
+    navigate('/options', { state: { appendedInputValue, originalInputValue: inputValue, type } });
   };
 
   const handleReuseClick = () => {
-    useSound(ghostSound, { preload: true });
+    playGhost();
     if (!inputValue) {
       setErrorMessage('Input cannot be blank.');
       return;
     }
 
-    const type = 'reuse';
+    const type = 'Reuse';
     const appendedInputValue = `List names of technical ways you can reuse ${inputValue} without taking it apart, make sure it is a list without numbers. Just put the name nothing before or after it. Only give 5 responses. Make sure its an unnumbered list`;
     navigate('/options', { state: { appendedInputValue, originalInputValue: inputValue, type } });
   };
 
   const handleRecycleClick = () => {
-    useSound(doorSound, { preload: true });
+    playDoor();
+    if (!inputValue) {
+        setErrorMessage('Input cannot be blank');
+        return;
+      }
+  
+      const type = 'Recycle';
+      const appendedInputValue = `List names of ways you can recycle and dispose of ${inputValue} properly without taking it apart, make sure it is a list without numbers. Just put the name nothing before or after it. Only give 5 responses. Make sure its an unnumbered list`;
+      navigate('/options', { state: { appendedInputValue, originalInputValue: inputValue, type } });
   }
 
   return (
@@ -85,7 +96,7 @@ export const Home = () => {
         <div className="buttons">
           <Button text="Rebuild" className="button" onClick={handleRebuildClick} />
           <Button text="Reuse" className="button" onClick={handleReuseClick} />
-          <Button text="Recycle" className="button" link="/" />
+          <Button text="Recycle" className="button" onClick={(handleRecycleClick)} />
         </div>
         <div className='bats'>
         {Array.from({ length: NUM_BATS }).map((_, index) => {
