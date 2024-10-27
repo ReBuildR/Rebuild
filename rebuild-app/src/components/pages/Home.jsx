@@ -4,6 +4,7 @@ import './Home.css';
 import { motion } from 'framer-motion';
 import useSound from 'use-sound';
 import batsSound from '/src/assets/bats.wav';
+import clickSound from '/src/assets/click.wav';
 
 const NUM_BATS = 50;
 
@@ -18,6 +19,7 @@ export const Home = () => {
   const viewportHeight = window.innerHeight;
 
   const [play] = useSound(batsSound, { preload: true });
+  const [playClick] = useSound(clickSound, { preload: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -31,9 +33,9 @@ export const Home = () => {
     <div className='home-container'>
       <div className="home-box">
         <div className="buttons">
-          <Button text="Rebuild" className="button-rebuild" link="/" />
-          <Button text="Reuse" className="button-reuse" link="/" />
-          <Button text="Recycle" className="button-recycle" link="/" />
+          <Button text="Rebuild" className="button-rebuild" link="/" onClick={playClick} />
+          <Button text="Reuse" className="button-reuse" link="/" onClick={playClick} />
+          <Button text="Recycle" className="button-recycle" link="/" onClick={playClick} />
         </div>
       </div>
       <div className='bats'>
