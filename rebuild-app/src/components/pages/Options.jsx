@@ -35,13 +35,14 @@ export const Options = () => {
 
   const handleClick = (item) => {
     const appendedItemValue = item
-      ? `List detailed techincal steps needed to ${type} ${item} using the parts of ${originalInputValue}, make sure it is a list without numbers. Make sure it's an unnumbered list`
+      ? `In technical format give the steps needed to ${type} ${item} using the parts of ${originalInputValue}. Talk about the tools and items needed, give as much detail as possible, to where the user can do it just based on these steps. Make it very wordy and descriptive, list every step possible. make sure it is a numbered list. do not list the items out as a seperate step`
       : '';
-    navigate('/answer', { state: { appendedItemValue } });
+    navigate('/answer', { state: { appendedItemValue, item } });
   };
 
   return (
     <div className="chatbot-container">
+      <div className="chatbot-title">{`Ways to ${type || 'process'} ${originalInputValue || 'item'}`}</div>
       <div className="chatbot-box">
         {items.length > 0 ? (
           <div>
@@ -52,7 +53,7 @@ export const Options = () => {
             ))}
           </div>
         ) : (
-          <p>No response available.</p>
+          <p className = "loading">Loading...</p>
         )}
       </div>
     </div>

@@ -5,7 +5,7 @@
 nav .image {
     height: 100px;
     width: 100px;
-    margin-right: -850px;
+    margin-right: -750px;
     margin-left: 20px;
     margin-bottom: 20px;
 }
@@ -23,7 +23,7 @@ nav {
 }
 
 nav .title {
-    font-size: 2rem;
+    font-size: 3rem;
     font-weight: bold;
     margin: 4rem;
     text-decoration: none;
@@ -48,7 +48,7 @@ nav ul li a {
     display: block;
     text-decoration: none;
     color: white;
-    font-size: 1.75rem;
+    font-size: 2rem;
     font-weight: bold;
     padding: 3rem;
     margin: 0 0.5rem;
