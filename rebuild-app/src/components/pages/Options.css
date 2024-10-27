@@ -1,0 +1,26 @@
+.chatbot-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    background: rgb(50,1,47);
+    background: linear-gradient(90deg, rgba(50,1,47,1) 0%, rgba(156,62,22,1) 15%, rgba(249,115,0,1) 50%, rgba(156,62,22,1) 85%, rgba(50,1,47,1) 100%);
+    overflow: auto;
+}
+.chatbot-buttons {
+    display: flex; /* Make the button inline */
+    font-size: 30px; /* Increase font size */
+    font-family: 'GravestoneDemo-4BPgx';
+    margin-bottom: 30px;
+    cursor: pointer; /* Pointer/hand icon */
+    transition: background-color 0.3s ease; /* Transition for hover effect */
+    background: none;
+    border: none;
+    color: black;
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+    height: 100px; /* Set a fixed height */
+    width: 600px; /* Set a fixed width for testing */
+}

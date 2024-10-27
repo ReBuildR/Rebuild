@@ -6,7 +6,7 @@ import { Navbar } from './components/Navbar'
 import { Home } from './components/pages/Home'
 import { Ideas } from './components/pages/Ideas'
 import { Submit } from './components/pages/Submit'
-import { Answer } from './components/pages/Answer'
+import { Options } from './components/pages/Options'
 
 function App() {
 
@@ -19,7 +19,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/ideas" element={<Ideas />} />
           <Route path="/submit" element={<Submit />} />
-          <Route path="/answer" element={<Answer inputValue={inputValue} />} />
+          <Route path="/options" element={<Options inputValue={inputValue} />} />
         </Routes>
     </div>
   )

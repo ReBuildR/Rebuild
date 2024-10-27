@@ -13,7 +13,10 @@ export const Home = () => {
   };
 
   const handleRebuildClick = () => {
-    navigate('/answer', { state: { inputValue } });
+    const appendedInputValue = inputValue
+    ? `List names of techincal projects you can create from using the parts of ${inputValue}, make sure it is a list without numbers. Just put the name nothing before or after it. Only give 5 responses. Make sure its an unnumbered list` 
+    : '';    
+    navigate('/options', { state: { appendedInputValue } });
   };
 
   return (
