@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const Chatbot = () => {
+export const Chatbot = () => {
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([]);
   
@@ -54,4 +54,3 @@ const Chatbot = () => {
   );
 };
 
-export default Chatbot;

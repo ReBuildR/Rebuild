@@ -1,8 +1,10 @@
 .home-container {
-    background: linear-gradient(to right, #F97300 45%, #32012F 0%);
+    background: rgb(50,1,47);
+    background: linear-gradient(90deg, rgba(50,1,47,1) 20%, rgba(249,115,0,1) 50%, rgba(50,1,47,1) 80%);
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     height: 100vh;
     width: 100%;
 }
@@ -19,4 +21,22 @@
     flex-direction: column; /* Stack children vertically */
     align-items: center; /* Center align items horizontally */
     border: 4px solid black; /* Add a 2px solid gold border */
+  }
+
+.home-input {
+    border: 2px solid black; /* Add a border matching the background */
+    text-align: center;
+    font-family: 'GravestoneDemo-4BPgx';
+    padding: 10px 30px; /* Some padding */
+    color: white;
+    background-color: #524C42;
+    font-size: 30px;
+    border-radius: 20px;
+    width: 575px;
+    height: 50px;
+    margin-bottom: 25px;
+}  
+
+.home-input::placeholder {
+    color:white; /* Change this color to your desired placeholder color */
   }
