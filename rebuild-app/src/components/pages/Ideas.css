@@ -79,12 +79,13 @@ ul.c li::marker {
     max-width: 475px; /* Adjust as needed for images */
     margin: 0; /* Remove margins for better alignment */
 }
+
 .download-button {
     background-color: #005B41; /* Gold color */
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 5px 10px; /* Keep the button size small */
+    padding: 8px 12px; /* Keep the button size small */
     cursor: pointer;
     position: absolute; /* Position it absolutely */
     bottom: 10px; /* Position it 10px from the bottom */
@@ -95,5 +96,5 @@ ul.c li::marker {
 }
 
 .download-button:hover {
-    background-color: #005B41; /* Darker gold on hover */
+    background-color: #9c3e16; /* Darker gold on hover */
 }

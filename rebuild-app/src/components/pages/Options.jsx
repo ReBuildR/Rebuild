@@ -3,11 +3,14 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import './Options.css';
 import { useLocation, useNavigate } from 'react-router-dom';
+import useSound from 'use-sound';
+import ghostSound from '/src/assets/ghost.wav';
 
 export const Options = () => {
   const [items, setItems] = useState([]);
   const { state: { appendedInputValue, originalInputValue, type } = {} } = useLocation();
   const navigate = useNavigate();
+  const [playGhost] = useSound(ghostSound, { preload: true });
 
   useEffect(() => {
     const fetchResponse = async () => {
@@ -34,6 +37,7 @@ export const Options = () => {
   }, [appendedInputValue]);
 
   const handleClick = (item) => {
+    playGhost();
     const appendedItemValue = item
       ? `In technical format give the steps needed to ${type} ${item} using the parts of ${originalInputValue}. Talk about the tools and items needed, give as much detail as possible, to where the user can do it just based on these steps. Make it very wordy and descriptive, list every step possible. make sure it is a numbered list. do not list the items out as a seperate step`
       : '';

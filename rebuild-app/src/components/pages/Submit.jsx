@@ -32,14 +32,15 @@ export const Submit = () => {
     padding: '20px',
     borderRadius: '15px',
     boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)',
-    backgroundColor: '#f9f9f9' // Light background color for the box
+    backgroundColor: 'white' // Light background color for the box
   };
 
   const labelStyle = {
     display: 'flex',
     flexDirection: 'column',
     fontWeight: 'bold',
-    marginBottom: '5px'
+    marginBottom: '5px',
+    fontFamily: 'GravestoneDemo-4BPgx'
   };
 
   const inputStyle = {
@@ -56,8 +57,8 @@ export const Submit = () => {
   };
 
   return (
-    <div>
-      <h2 style={{ textAlign: 'center', marginBottom: '20px' }}>Submit Your Project Idea</h2>
+    <div style={{ backgroundColor: '#9c3e16', minHeight: '100vh', padding: '20px' }}>
+      <h2 style={{ textAlign: 'center', marginBottom: '20px', fontFamily: 'GravestoneDemo-4BPgx' }}>Submit Your Project Idea</h2>
       <form onSubmit={handleSubmit} style={formStyle}>
         <label style={labelStyle}>
           Author:
@@ -174,7 +175,7 @@ export const Submit = () => {
           />
         </label>
 
-        <button type="submit" style={{ padding: '10px', fontSize: '16px', fontWeight: 'bold', borderRadius: '8px', border: 'none', backgroundColor: '#007BFF', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s' }}>Submit Idea</button>
+        <button type="submit" style={{ padding: '10px', fontSize: '16px', fontWeight: 'bold', borderRadius: '8px', border: 'none', backgroundColor: '#005B41', color: 'white', cursor: 'pointer', transition: 'background-color 0.3s', fontFamily:'GravestoneDemo-4BPgx', hover: '9c3e16' }}>Submit Idea</button>
       </form>
     </div>
   );
