@@ -2,6 +2,9 @@ import React from 'react'
 import { Button } from './Button'
 import './Home.css'
 import { motion } from "framer-motion"
+import useSound from 'use-sound';
+import batsSound from 'src/assets/bats.wav';
+import { useEffect } from 'react';
 
 const NUM_BATS = 50; // Number of bats to show
 
@@ -14,6 +17,12 @@ const getRandomPosition = (viewportWidth, viewportHeight) => {
 export const Home = () => {
   const viewportWidth = window.innerWidth; // Get viewport width
   const viewportHeight = window.innerHeight; // Get viewport height
+
+  const [play] = useSound(batsSound);
+
+  useEffect(() => {
+    play(); // Play the sound automatically on component mount
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   return (
     <div className='home-container'>
