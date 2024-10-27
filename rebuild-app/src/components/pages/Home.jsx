@@ -2,8 +2,39 @@ import React, { useState } from 'react';
 import { Button } from './Button';
 import { useNavigate } from 'react-router-dom';
 import './Home.css';
+import { motion } from 'framer-motion';
+import useSound from 'use-sound';
+import batsSound from '/src/assets/bats.wav';
+import clickSound from '/src/assets/click.wav';
+import zombieSound from '/src/assets/zombie.wav';
+import ghostSound from '/src/assets/ghost.wav';
+import doorSound from '/src/assets/door.wav';
+
+
+const NUM_BATS = 50;
+
+const getRandomPosition = (viewportWidth, viewportHeight) => {
+  const x = Math.random() < 0.5 ? -1300 : viewportWidth + 100;
+  const y = Math.random() * viewportHeight;
+  return { x, y };
+};
 
 export const Home = () => {
+
+  const viewportWidth = window.innerWidth;
+  const viewportHeight = window.innerHeight;
+
+  const [play] = useSound(batsSound, { preload: true });
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      play();
+    }, 100); // slight delay to ensure everything is ready
+
+    return () => clearTimeout(timeout);
+  }, [play]);
+
+
   const [inputValue, setInputValue] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const navigate = useNavigate();
@@ -14,6 +45,7 @@ export const Home = () => {
   };
 
   const handleRebuildClick = () => {
+    useSound(zombieSound, { preload: true });
     if (!inputValue) {
       setErrorMessage('Input cannot be blank.');
       return;
@@ -24,6 +56,7 @@ export const Home = () => {
   };
 
   const handleReuseClick = () => {
+    useSound(ghostSound, { preload: true });
     if (!inputValue) {
       setErrorMessage('Input cannot be blank.');
       return;
@@ -33,6 +66,10 @@ export const Home = () => {
     const appendedInputValue = `List names of technical ways you can reuse ${inputValue} without taking it apart, make sure it is a list without numbers. Just put the name nothing before or after it. Only give 5 responses. Make sure its an unnumbered list`;
     navigate('/options', { state: { appendedInputValue, originalInputValue: inputValue, type } });
   };
+
+  const handleRecycleClick = () => {
+    useSound(doorSound, { preload: true });
+  }
 
   return (
     <div className="home-container">
@@ -50,57 +87,7 @@ export const Home = () => {
           <Button text="Reuse" className="button" onClick={handleReuseClick} />
           <Button text="Recycle" className="button" link="/" />
         </div>
-      </div>
-    </div>
-  );
-};
-import React, { useEffect } from 'react';
-import { Button } from './Button';
-import './Home.css';
-import { motion } from 'framer-motion';
-import useSound from 'use-sound';
-import batsSound from '/src/assets/bats.wav';
-import clickSound from '/src/assets/click.wav';
-import zombieSound from '/src/assets/zombie.wav';
-import ghostSound from '/src/assets/ghost.wav';
-import doorSound from '/src/assets/door.wav';
-
-const NUM_BATS = 50;
-
-const getRandomPosition = (viewportWidth, viewportHeight) => {
-  const x = Math.random() < 0.5 ? -1300 : viewportWidth + 100;
-  const y = Math.random() * viewportHeight;
-  return { x, y };
-};
-
-export const Home = () => {
-  const viewportWidth = window.innerWidth;
-  const viewportHeight = window.innerHeight;
-
-  const [play] = useSound(batsSound, { preload: true });
-  const [playClick] = useSound(clickSound, { preload: true });
-  const [playZombie] = useSound(zombieSound, { preload: true });
-  const [playGhost] = useSound(ghostSound, { preload: true });
-  const [playDoor] = useSound(doorSound, { preload: true });
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      play();
-    }, 100); // slight delay to ensure everything is ready
-
-    return () => clearTimeout(timeout);
-  }, [play]);
-
-  return (
-    <div className='home-container'>
-      <div className="home-box">
-        <div className="buttons">
-          <Button text="Rebuild" className="button-rebuild" link="/" onClick={playZombie} />
-          <Button text="Reuse" className="button-reuse" link="/" onClick={playDoor} />
-          <Button text="Recycle" className="button-recycle" link="/" onClick={playGhost} />
-        </div>
-      </div>
-      <div className='bats'>
+        <div className='bats'>
         {Array.from({ length: NUM_BATS }).map((_, index) => {
           const { x, y } = getRandomPosition(viewportWidth, viewportHeight);
           return (
@@ -116,6 +103,7 @@ export const Home = () => {
           );
         })}
       </div>
+      </div>
     </div>
   );
-}
+};
