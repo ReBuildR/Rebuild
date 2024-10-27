@@ -1,14 +1,14 @@
-// src/Chatbot.js
+// src/Options.jsx
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import './Options.css'
-import { useLocation } from 'react-router-dom';
-
+import './Options.css';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const Options = () => {
   const [items, setItems] = useState([]);
-  const [gptMessage, setGptMessage] = useState('');
-  const { state: { appendedInputValue } = {} } = useLocation();
+  const { state: { appendedInputValue, originalInputValue, type } = {} } = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const fetchResponse = async () => {
       if (!appendedInputValue) return; // Ensure input exists
@@ -18,13 +18,12 @@ export const Options = () => {
           message: appendedInputValue,
         });
 
-        const content = response.data.content; 
+        const content = response.data.content;
         const parsedItems = content
-        .split('\n')
-        .filter(item => item.trim() !== '') // Split response into items and filter out empty items
-        .map(item => item.slice(2).trim()); // Remove the first character and trim spaces
+          .split('\n')
+          .filter(item => item.trim() !== '') // Split response into items and filter out empty items
+          .map(item => item.slice(2).trim()); // Remove the first character and trim spaces
 
-        setGptMessage(content);
         setItems(parsedItems);
       } catch (error) {
         console.error('Error fetching response from backend:', error);
@@ -34,20 +33,28 @@ export const Options = () => {
     fetchResponse();
   }, [appendedInputValue]);
 
+  const handleClick = (item) => {
+    const appendedItemValue = item
+      ? `List detailed techincal steps needed to ${type} ${item} using the parts of ${originalInputValue}, make sure it is a list without numbers. Make sure it's an unnumbered list`
+      : '';
+    navigate('/answer', { state: { appendedItemValue } });
+  };
+
   return (
-    <div className= "chatbot-container">
-      <h2>ChatGPT Response:</h2>
-      {gptMessage ? (
-        <div>
-          {items.map((item, index) => (
-          <button key={index} className="chatbot-buttons">
-            {item}
-          </button>
-          ))}
-        </div>
-      ) : (
-        <p>No response available.</p>
-      )}
+    <div className="chatbot-container">
+      <div className="chatbot-box">
+        {items.length > 0 ? (
+          <div>
+            {items.map((item, index) => (
+              <button key={index} className="chatbot-buttons" onClick={() => handleClick(item)}>
+                {item}
+              </button>
+            ))}
+          </div>
+        ) : (
+          <p>No response available.</p>
+        )}
+      </div>
     </div>
   );
 };
