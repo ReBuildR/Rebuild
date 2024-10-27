@@ -5,6 +5,9 @@ import { motion } from 'framer-motion';
 import useSound from 'use-sound';
 import batsSound from '/src/assets/bats.wav';
 import clickSound from '/src/assets/click.wav';
+import zombieSound from '/src/assets/zombie.wav';
+import ghostSound from '/src/assets/ghost.wav';
+import doorSound from '/src/assets/door.wav';
 
 const NUM_BATS = 50;
 
@@ -20,6 +23,9 @@ export const Home = () => {
 
   const [play] = useSound(batsSound, { preload: true });
   const [playClick] = useSound(clickSound, { preload: true });
+  const [playZombie] = useSound(zombieSound, { preload: true });
+  const [playGhost] = useSound(ghostSound, { preload: true });
+  const [playDoor] = useSound(doorSound, { preload: true });
 
   useEffect(() => {
     const timeout = setTimeout(() => {
@@ -33,9 +39,9 @@ export const Home = () => {
     <div className='home-container'>
       <div className="home-box">
         <div className="buttons">
-          <Button text="Rebuild" className="button-rebuild" link="/" onClick={playClick} />
-          <Button text="Reuse" className="button-reuse" link="/" onClick={playClick} />
-          <Button text="Recycle" className="button-recycle" link="/" onClick={playClick} />
+          <Button text="Rebuild" className="button-rebuild" link="/" onClick={playZombie} />
+          <Button text="Reuse" className="button-reuse" link="/" onClick={playDoor} />
+          <Button text="Recycle" className="button-recycle" link="/" onClick={playGhost} />
         </div>
       </div>
       <div className='bats'>
