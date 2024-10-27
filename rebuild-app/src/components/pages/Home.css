@@ -7,6 +7,8 @@
     width: 100%;
     background: #9c3e16;
     
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .home-box {
@@ -39,4 +41,8 @@
 
 .home-input::placeholder {
     color:white; /* Change this color to your desired placeholder color */
-  }
+}
+.bat {
+    z-index: 2000;
+    position: absolute;
+}
