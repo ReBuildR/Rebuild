@@ -1,23 +1,23 @@
-import { React, useState } from 'react';
+// Home.jsx
+import React, { useState } from 'react';
 import { Button } from './Button';
-import { useNavigate } from 'react-router-dom'; // Import useNavigate
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 export const Home = () => {
   const [inputValue, setInputValue] = useState('');
-  const navigate = useNavigate(); // Initialize useNavigate
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
   };
 
   const handleRebuildClick = () => {
-    console.log('hi');
-    navigate(`/answer`); // Navigate with URL parameter
+    navigate('/answer', { state: { inputValue } });
   };
 
   return (
-    <div className='home-container'>
+    <div className="home-container">
       <input
         type="text"
         value={inputValue}

@@ -14,9 +14,9 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: sticky;
     background: rgb(50,1,47);
     background: linear-gradient(90deg, rgba(50,1,47,1) 0%, rgba(156,62,22,1) 15%, rgba(249,115,0,1) 50%, rgba(156,62,22,1) 85%, rgba(50,1,47,1) 100%);
-    position: sticky;
     font-family: 'GravestoneDemo-4BPgx';
     top: 0;
     height: 100px;
