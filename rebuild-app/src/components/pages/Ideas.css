@@ -1,0 +1,98 @@
+.ideas-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: hidden;
+    height: auto;
+    background: linear-gradient(to right, #32612D 45%, #FFFF 0%);
+}
+
+.ideas-box {
+    width: 90%;
+    max-width: 1000px; /* Width of the box */
+    border-radius: 20px;
+    max-height: 600px;
+    box-shadow: -1px 6px 15px rgba(0, 0, 0, 0.2); /* Box shadow */
+    display: flex; /* Ensure internal content doesn't cause reflow */
+    margin-bottom: 10px; /* Decreased margin to create less space between boxes */
+}
+
+.ideas-box-left {
+    flex: 0.5; /* Take half of the width */
+    background-color: white;
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    align-items: left; /* Left align items */
+    justify-content: center;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    padding: 10px; /* Reduced padding for tighter spacing */
+}
+
+.ideas-box-right {
+    flex: 0.5; /* Take half of the width */
+    background-color: white;
+    display: flex;
+    justify-content: center; /* Center the image gallery */
+    align-items: center; /* Center the image gallery */
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding-right: 10px; /* Reduced padding to move the image left */
+}
+
+.ideas-header {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    padding: 10px; /* Reduced padding */
+}
+
+.title {
+    margin: 0; /* Remove margins for better alignment */
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.description {
+    font-size: 15px;
+    margin-top: 2%; /* Further reduced margin for tighter alignment */
+}
+
+.sub-title {
+    font-size: 16px;
+    margin-top: 1%; /* Keep margin small */
+}
+
+ul.c {
+    list-style-type: square;
+    margin-left: 0; /* Remove left margin */
+}
+
+ul.c li::marker {
+    color: #D4AF37; /* Gold color for the bullet points */
+}
+
+.image-gallery-wrapper {
+    width: 100%;
+    max-width: 475px; /* Adjust as needed for images */
+    margin: 0; /* Remove margins for better alignment */
+}
+.download-button {
+    background-color: #D4AF37; /* Gold color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px; /* Keep the button size small */
+    cursor: pointer;
+    position: absolute; /* Position it absolutely */
+    bottom: 10px; /* Position it 10px from the bottom */
+    left: 50%; /* Position it horizontally centered */
+    transform: translateX(-50%); /* Center it using transform */
+    font-size: 12px; /* Smaller font size */
+    z-index: 1; /* Ensure it appears above other elements */
+}
+
+.download-button:hover {
+    background-color: #b5942b; /* Darker gold on hover */
+}
